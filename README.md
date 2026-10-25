@@ -10,7 +10,7 @@ Open `index.html` in a browser, or serve the folder:
 
 ## Structure
 
-- `index.html`: the page
+- `index.html`, `about.html`, `cast.html`, `shows.html`, `watch-listen.html`, `gallery.html`, `book-us.html`, `contact.html`: the pages
 - `css/style.css`: styles
 - `js/main.js`: scripts
 - `assets/images`, `assets/audio`: media
