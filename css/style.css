@@ -98,7 +98,7 @@ p { max-width: 62ch; }
 .page-hero .wrap { width: 100%; }
 
 .hero__grid { display: grid; gap: clamp(1.5rem, 4vw, 3rem); grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); align-items: end; }
-.media--hero { background: var(--blue); color: var(--ink-on-blue); border-color: var(--blue); }
+.hero .media--hero { background: var(--blue); color: var(--ink-on-blue); border-color: var(--blue); }
 
 /* marquee */
 .marquee { overflow: hidden; white-space: nowrap; padding: 1rem 0; border-block: 2px solid currentColor; }
