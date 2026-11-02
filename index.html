@@ -5,34 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>The Delhi Musical Theater</title>
   <meta name="description" content="Description goes here">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/lenis.css">
   <link rel="stylesheet" href="css/style.css?v=1792957745">
 </head>
-<body id="top">
+<body id="top" class="home">
 <a class="skip" href="#main">Skip to content</a>
-<div class="announce"><a href="shows.html">Announcement goes here</a></div>
 <header class="site-header">
   <a class="logo" href="index.html">The Delhi Musical Theater</a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Menu"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg></button>
   <nav class="nav" id="nav" aria-label="Main"><a href="about.html">About</a><a href="cast.html">Cast</a><a href="shows.html">Shows</a><a href="watch-listen.html">Watch &amp; Listen</a><a href="gallery.html">Gallery</a><a href="book-us.html">Book us</a><a href="contact.html">Contact</a></nav>
 </header>
 <main id="main">
-<section class="band band--orange hero">
-  <div class="wrap hero__grid">
-    <div class="hero__text">
-      <h1 class="display">The<br>Delhi<br>Musical<br>Theater</h1>
-      <p class="lede">Tagline goes here</p>
-      <div class="btns"><a class="btn btn--solid" href="book-us.html">Book us</a></div>
-    </div>
-    <div class="media media--hero">Video placeholder</div>
+<section class="loader" id="loader" aria-label="Intro">
+  <h1 class="hero-title" id="heroTitle" aria-label="The Delhi Musical Theater">
+    <span class="hw hw--the" aria-hidden="true">The</span>
+    <span class="hero-row" aria-hidden="true"><span class="hw hw--delhi">Delhi</span><span class="hero-slot" id="heroSlot"></span><span class="hw hw--musical">Musical</span></span>
+    <span class="hw hw--theater" aria-hidden="true">Theater</span>
+  </h1>
+  <div class="loader__stage" id="loaderStage">
+    <video class="loader__video" id="loaderVideo" src="assets/video/hero.mp4" autoplay muted loop playsinline preload="auto"></video>
+    <div class="loader__feather" aria-hidden="true"></div>
+    <span class="loader__play" aria-hidden="true"><svg viewBox="0 0 24 24" width="40%" height="40%"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg></span>
   </div>
+  <span class="loader__scroll" aria-hidden="true">Scroll</span>
 </section>
-<section class="band band--yellow "><div class="wrap"><h2 class="h2">About</h2><p class="lede">Description goes here</p><a class="btn btn--solid" href="about.html">Read more</a></div></section>
-<section class="band band--navy "><div class="wrap"><h2 class="h2">Watch &amp; Listen</h2><div class="media">Video embed goes here</div><a class="btn" href="watch-listen.html">More to watch and hear</a></div></section>
-<section class="band band--spring "><div class="wrap"><h2 class="h2">Cast</h2><ul class="grid"><li class="card"><div class="shape">Photo</div><h3>Tanvi Joshi</h3><p>Vocalist</p></li><li class="card"><div class="shape">Photo</div><h3>Kanha Sharma</h3><p>Vocalist</p></li><li class="card"><div class="shape">Photo</div><h3>Darsan Sunoj</h3><p>Keyboardist</p></li><li class="card"><div class="shape">Photo</div><h3>Ashish Hans</h3><p>Guitarist</p></li><li class="card"><div class="shape">Photo</div><h3>Nikhil Manderwal</h3><p>Drums</p></li><li class="card"><div class="shape">Photo</div><h3>Ashish Titus</h3><p>Bass</p></li></ul></div></section>
-<section class="band band--yellow "><div class="wrap"><h2 class="h2">Gallery</h2><ul class="grid"><li class="card"><div class="shape shape--wide">Photo</div></li><li class="card"><div class="shape shape--wide">Photo</div></li><li class="card"><div class="shape shape--wide">Photo</div></li><li class="card"><div class="shape shape--wide">Photo</div></li><li class="card"><div class="shape shape--wide">Photo</div></li><li class="card"><div class="shape shape--wide">Photo</div></li></ul><a class="btn" href="gallery.html">See all photos</a></div></section>
-<section class="band band--red "><div class="wrap"><div class="split"><div><h2 class="h2">Book us</h2><p class="lede">Description goes here</p><div class="btns"><a class="btn" href="book-us.html">Book us</a></div></div></div></div></section>
+<section class="band band--yellow about" id="about"><div class="wrap">
+  <p class="eyebrow">(01) About</p>
+  <div class="about__grid">
+    <p class="pull">Music for the stage, played like it&rsquo;s the only room in the world.</p>
+    <div class="about__side"><p>Description goes here</p><a class="link" href="about.html">Read more <span aria-hidden="true">&rarr;</span></a></div>
+  </div>
+</div></section>
+
+<section class="band band--navy watch" id="watch"><div class="wrap">
+  <p class="eyebrow">(02) Watch &amp; Listen</p>
+  <h2 class="h2">Press play.</h2>
+  <div class="media media--feature">Featured video goes here</div>
+  <div class="watch__meta"><span>Song title &mdash; Year</span></div>
+  <ul class="listen"><li><a href="#">Spotify</a></li><li><a href="#">Apple Music</a></li><li><a href="#">YouTube</a></li><li><a class="link" href="watch-listen.html">More to watch and hear <span aria-hidden="true">&rarr;</span></a></li></ul>
+</div></section>
+
+<section class="band band--spring cast-band" id="cast"><div class="wrap cast">
+  <p class="eyebrow">(03) Cast</p>
+  <div class="cast__layout"><div class="shape shape--band">Band photo</div>
+  <ol class="cast__list"><li><span class="cast__name">Kanha Sharma</span><span class="cast__role">Vocalist</span></li><li><span class="cast__name">Sunny Anthony</span><span class="cast__role">Producer</span></li><li><span class="cast__name">Darsan Sunoj</span><span class="cast__role">Keyboardist</span></li><li><span class="cast__name">Nikhil Manderwal</span><span class="cast__role">Drums</span></li><li><span class="cast__name">Tanvi Joshi</span><span class="cast__role">Vocalist</span></li><li><span class="cast__name">Ashish Hans</span><span class="cast__role">Guitarist</span></li><li><span class="cast__name">Ashish Titus</span><span class="cast__role">Bass</span></li></ol></div>
+</div></section>
+
+<section class="band band--yellow gallery" id="gallery"><div class="wrap">
+  <p class="eyebrow">(04) Gallery</p>
+  <div class="mosaic">
+    <figure class="m1"><div class="shape"><span class="ph">Landscape</span></div><figcaption>Caption &middot; Venue, 2026</figcaption></figure>
+    <figure class="m2"><div class="shape"><span class="ph">Portrait</span></div><figcaption>Caption &middot; Venue, 2026</figcaption></figure>
+    <figure class="m3"><div class="shape"><span class="ph">Portrait</span></div><figcaption>Caption &middot; Venue, 2026</figcaption></figure>
+    <figure class="m4"><div class="shape"><span class="ph">Landscape</span></div><figcaption>Caption &middot; Venue, 2026</figcaption></figure>
+    <figure class="m5"><div class="shape"><span class="ph">Panorama</span></div><figcaption>Caption &middot; Venue, 2026</figcaption></figure>
+  </div>
+  <a class="link" href="gallery.html">See all photos <span aria-hidden="true">&rarr;</span></a>
+</div></section>
+
+<section class="band band--red book" id="book"><div class="wrap">
+  <p class="eyebrow">(05) Book us</p>
+  <h2 class="book__title">Bring the band to your stage.</h2>
+  <p class="lede">Description goes here</p>
+  <div class="book__actions"><a class="btn btn--solid" href="book-us.html">Start an enquiry</a><span>Email goes here</span></div>
+</div></section>
 
 </main>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <div class="cursor__pill" id="cursorBody"><span class="cursor__inner"><span class="cursor__label" id="cursorLabel">Unmute</span><svg class="cursor__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><g class="on"><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/></g></svg></span></div>
+</div>
+<div class="counter" id="counter" aria-hidden="true"><span class="counter__n">01</span> / 05 <span class="counter__label">About</span></div>
 <footer class="site-footer">
   <p class="footer-name">The Delhi Musical Theater</p>
   <div class="footer-grid">
@@ -42,6 +85,12 @@
   </div>
   <div class="footer-base"><span>&copy; <span id="year">2026</span> The Delhi Musical Theater</span><a href="#top">Back to top</a></div>
 </footer>
+<script src="js/vendor/lenis.min.js"></script>
+<script src="js/vendor/gsap.min.js"></script>
+<script src="js/vendor/ScrollTrigger.min.js"></script>
+<script src="js/vendor/SplitText.min.js"></script>
 <script src="js/main.js?v=1792957745"></script>
+<script src="js/motion.js?v=1"></script>
+<script src="js/cursor.js"></script>
 </body>
 </html>
