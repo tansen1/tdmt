@@ -6,8 +6,8 @@
   <title>The Delhi Musical Theater</title>
   <meta name="description" content="Description goes here">
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/lenis.css">
-  <link rel="stylesheet" href="css/style.css?v=1792957745">
+  <link rel="stylesheet" href="css/lenis.css?v=1793661475">
+  <link rel="stylesheet" href="css/style.css?v=1793661475">
 </head>
 <body id="top" class="home">
 <a class="skip" href="#main">Skip to content</a>
@@ -19,9 +19,9 @@
 <main id="main">
 <section class="loader" id="loader" aria-label="Intro">
   <h1 class="hero-title" id="heroTitle" aria-label="The Delhi Musical Theater">
-    <span class="hw hw--the" aria-hidden="true">The</span>
-    <span class="hero-row" aria-hidden="true"><span class="hw hw--delhi">Delhi</span><span class="hero-slot" id="heroSlot"></span><span class="hw hw--musical">Musical</span></span>
-    <span class="hw hw--theater" aria-hidden="true">Theater</span>
+    <span class="hw hw--the" aria-hidden="true"><span class="hw__in">The</span></span>
+    <span class="hero-row" aria-hidden="true"><span class="hw hw--delhi"><span class="hw__in">Delhi</span></span><span class="hero-slot" id="heroSlot"></span><span class="hw hw--musical"><span class="hw__in">Musical</span></span></span>
+    <span class="hw hw--theater" aria-hidden="true"><span class="hw__in">Theater</span></span>
   </h1>
   <div class="loader__stage" id="loaderStage">
     <video class="loader__video" id="loaderVideo" src="assets/video/hero.mp4" autoplay muted loop playsinline preload="auto"></video>
@@ -69,6 +69,13 @@
   <h2 class="book__title">Bring the band to your stage.</h2>
   <p class="lede">Description goes here</p>
   <div class="book__actions"><a class="btn btn--solid" href="book-us.html">Start an enquiry</a><span>Email goes here</span></div>
+  <div class="burst" aria-hidden="true">
+    <svg class="burst__spin" viewBox="0 0 200 200"><defs><path id="burstPath" d="M100,100 m-58,0 a58,58 0 1,1 116,0 a58,58 0 1,1 -116,0"/></defs>
+      <polygon points="100.0,2.0 115.6,21.5 137.5,9.5 144.4,33.5 169.3,30.7 166.5,55.6 190.5,62.5 178.5,84.4 198.0,100.0 178.5,115.6 190.5,137.5 166.5,144.4 169.3,169.3 144.4,166.5 137.5,190.5 115.6,178.5 100.0,198.0 84.4,178.5 62.5,190.5 55.6,166.5 30.7,169.3 33.5,144.4 9.5,137.5 21.5,115.6 2.0,100.0 21.5,84.4 9.5,62.5 33.5,55.6 30.7,30.7 55.6,33.5 62.5,9.5 84.4,21.5" fill="#ff7ac6"/>
+      <text><textPath href="#burstPath" textLength="360" lengthAdjust="spacing">NOW BOOKING &bull; NOW BOOKING &bull; NOW BOOKING &bull; </textPath></text>
+    </svg>
+    <span class="burst__arrow">&nearr;</span>
+  </div>
 </div></section>
 
 </main>
@@ -76,21 +83,24 @@
   <div class="cursor__pill" id="cursorBody"><span class="cursor__inner"><span class="cursor__label" id="cursorLabel">Unmute</span><svg class="cursor__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9.5v5h3.5L12 18.5v-13L7.5 9.5H4z"/><g class="on"><path d="M15.5 9a4.2 4.2 0 0 1 0 6M18.2 6.5a8 8 0 0 1 0 11"/></g></svg></span></div>
 </div>
 <div class="counter" id="counter" aria-hidden="true"><span class="counter__n">01</span> / 05 <span class="counter__label">About</span></div>
-<footer class="site-footer">
-  <p class="footer-name">The Delhi Musical Theater</p>
-  <div class="footer-grid">
-    <div><h2>Pages</h2><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="cast.html">Cast</a></li><li><a href="shows.html">Shows</a></li><li><a href="watch-listen.html">Watch &amp; Listen</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="book-us.html">Book us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
-    <div><h2>Listen and follow</h2><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li><li><a href="#">Spotify</a></li><li><a href="#">Apple Music</a></li></ul></div>
-    <div><h2>Contact</h2><ul><li>Email goes here</li><li><a href="book-us.html">Book us</a></li></ul></div>
+<footer class="site-footer foot">
+  <div class="foot__top">
+    <a class="foot__ring" href="#top" aria-label="Back to top"><span aria-hidden="true">&uarr;</span></a>
+    <div class="foot__boxes">
+      <nav class="foot__box" aria-label="Pages"><h2>Pages</h2><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="cast.html">Cast</a></li><li><a href="shows.html">Shows</a></li><li><a href="watch-listen.html">Watch &amp; Listen</a></li><li><a href="gallery.html">Gallery</a></li><li><a href="book-us.html">Book us</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+      <div class="foot__box"><h2>Listen &amp; follow</h2><ul><li><a href="#">Instagram</a></li><li><a href="#">Facebook</a></li><li><a href="#">YouTube</a></li><li><a href="#">Spotify</a></li><li><a href="#">Apple Music</a></li></ul></div>
+      <div class="foot__box"><h2>Contact</h2><ul><li>Email goes here</li><li><a href="book-us.html">Book us</a></li></ul></div>
+    </div>
   </div>
-  <div class="footer-base"><span>&copy; <span id="year">2026</span> The Delhi Musical Theater</span><a href="#top">Back to top</a></div>
+  <div class="foot__base"><span>&copy; <span id="year">2026</span> The Delhi Musical Theater</span></div>
+  <div class="marquee" aria-hidden="true"><div class="marquee__track"><span>tdmt&bull;live&bull;tdmt&bull;live&bull;</span><span>tdmt&bull;live&bull;tdmt&bull;live&bull;</span></div></div>
 </footer>
 <script src="js/vendor/lenis.min.js"></script>
 <script src="js/vendor/gsap.min.js"></script>
 <script src="js/vendor/ScrollTrigger.min.js"></script>
 <script src="js/vendor/SplitText.min.js"></script>
-<script src="js/main.js?v=1792957745"></script>
-<script src="js/motion.js?v=1"></script>
-<script src="js/cursor.js"></script>
+<script src="js/main.js?v=1793661475"></script>
+<script src="js/motion.js?v=1793661475"></script>
+<script src="js/cursor.js?v=1793661475"></script>
 </body>
 </html>

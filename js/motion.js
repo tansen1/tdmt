@@ -47,9 +47,9 @@
 
       // "The" starts a third of the way across the small video, as in the reference
       function placeThe() {
-        gsap.set(the, { x: 0 });
+        the.style.setProperty('--the-x', '0px');
         var l = the.getBoundingClientRect().left, r = slot.getBoundingClientRect();
-        gsap.set(the, { x: r.left + r.width / 3 - l });
+        the.style.setProperty('--the-x', (r.left + r.width / 3 - l).toFixed(1) + 'px');
       }
       placeThe();
       window.addEventListener('resize', placeThe);
@@ -61,8 +61,7 @@
         borderBottomLeftRadius: radius(), borderBottomRightRadius: radius(), visibility: 'visible' });
       gsap.set(feather, { opacity: 0 });
 
-      // entrance: words rise in once
-      gsap.from([the, delhi, musical, theater], { opacity: 0, yPercent: 30, duration: 1.1, stagger: 0.12, ease: 'power3.out', delay: 0.15, clearProps: 'opacity' }); // yPercent, not y: the scroll tween owns y
+      // entrance of the words is pure CSS (.hw__in); GSAP only ever moves them on scroll
       gsap.from(stage, { opacity: 0, duration: 1.2, ease: 'power2.out', delay: 0.4 });
 
       var tl = gsap.timeline({ defaults: { ease: 'none' },
@@ -166,26 +165,54 @@
       ['.site-footer', brown, paper, null]
     ];
     var counter = document.getElementById('counter');
-    tones.forEach(function (t) {
-      var el = document.querySelector(t[0]); if (!el) return;
-      ScrollTrigger.create({ trigger: el, start: 'top 55%', end: 'bottom 55%',
-        onToggle: function (self) {
-          if (!self.isActive) return;
-          gsap.to(document.body, { backgroundColor: t[1], color: t[2], duration: 0.9, ease: 'power2.inOut', overwrite: 'auto' });
-          if (t[3]) {
-            counter.querySelector('.counter__n').textContent = t[3];
-            counter.querySelector('.counter__label').textContent = t[4];
-            counter.classList.add('is-on');
-          } else counter.classList.remove('is-on');
-        },
-        onLeaveBack: function () { if (t[0] === '#about') counter.classList.remove('is-on'); }
-      });
-    });
+    tones.forEach(function (t) { t.el = document.querySelector(t[0]); });
+    // A section takes over the page colour at the moment the previous section's content
+    // has fully left the top of the screen, so the old colour is never on screen next to
+    // the old content as it changes. (About follows the hero; the short footer can never
+    // scroll that far, so it switches as it rises into view.)
+    function takenOver(i) {
+      var t = tones[i]; if (!t.el) return false;
+      if (t[0] === '.site-footer') return t.el.getBoundingClientRect().top <= innerHeight * 0.9;
+      if (i === 0) return t.el.getBoundingClientRect().top <= innerHeight * 0.5;
+      var prev = tones[i - 1].el && tones[i - 1].el.querySelector('.wrap');
+      return !!prev && prev.getBoundingClientRect().bottom <= 0;
+    }
+    var current = -2;
+    function pick() {
+      var idx = -1;
+      for (var i = 0; i < tones.length; i++) if (takenOver(i)) idx = i;
+      if (idx === current) return;
+      current = idx;
+      if (idx < 0) { counter.classList.remove('is-on'); return; }
+      var t = tones[idx];
+      gsap.to(document.body, { backgroundColor: t[1], color: t[2], duration: 0.9, ease: 'power2.inOut', overwrite: 'auto' });
+      if (t[3]) {
+        counter.querySelector('.counter__n').textContent = t[3];
+        counter.querySelector('.counter__label').textContent = t[4];
+        counter.classList.add('is-on');
+      } else counter.classList.remove('is-on');
+    }
+    ScrollTrigger.create({ start: 0, end: 'max', onUpdate: pick, onRefresh: pick });
+    pick();
 
     // nav stays put; solid bar once the page content reaches the top
     ScrollTrigger.create({ trigger: '#about', start: 'top 80px',
       onEnter: function () { document.body.classList.add('past-hero'); },
       onLeaveBack: function () { document.body.classList.remove('past-hero'); } });
+
+    // nav hover: colour sweeps through the letters left to right, and back on leave
+    if (window.matchMedia('(hover: hover)').matches) {
+      document.querySelectorAll('.nav a').forEach(function (a) {
+        var split = SplitText.create(a, { type: 'chars' });
+        var tl = gsap.timeline({ paused: true })
+          .to(split.chars, { color: '#d11fa0', duration: 0.25, ease: 'power2.out',
+            stagger: { each: 0.03, from: 'start' } });
+        a.addEventListener('mouseenter', function () { tl.timeScale(1).play(); });
+        a.addEventListener('mouseleave', function () { tl.timeScale(1.6).reverse(); });
+        a.addEventListener('focus', function () { tl.timeScale(1).play(); });
+        a.addEventListener('blur', function () { tl.timeScale(1.6).reverse(); });
+      });
+    }
 
     clearTimeout(failsafe);
     ScrollTrigger.refresh();
