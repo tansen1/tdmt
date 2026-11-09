@@ -1,0 +1,8 @@
+/* Stage-curtain reveal for the cast photo (see js/curtain.js). */
+.cast-band .shape--band { position: relative; }
+.curtain { position: absolute; top: 0; bottom: 0; width: 50.5%; z-index: 2; pointer-events: none;
+  background:
+    repeating-linear-gradient(90deg, rgba(0,0,0,.28) 0 6px, rgba(255,255,255,.06) 6px 14px, rgba(0,0,0,.18) 14px 26px),
+    linear-gradient(180deg, #8a1224, #5c0b18); }
+.curtain--l { left: 0; box-shadow: 6px 0 24px rgba(0,0,0,.45); }
+.curtain--r { right: 0; box-shadow: -6px 0 24px rgba(0,0,0,.45); }
